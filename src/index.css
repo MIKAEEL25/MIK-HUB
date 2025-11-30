@@ -11,3 +11,7 @@
     color: white;
   }
 }
+
+@theme {
+  --color-primary: var(--color-red-500);
+}

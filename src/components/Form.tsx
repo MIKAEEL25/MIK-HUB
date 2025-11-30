@@ -1,7 +1,7 @@
 import type React from 'react';
 import { useState, type JSX } from 'react';
 import { Link, useNavigation, useNavigate } from 'react-router-dom';
-import type { SignUpFormState } from '../models/SignUpForm';
+import type { SignUpFormState } from '../models/SignupForm';
 import Inputs from './Inputs';
 
 let errorContent: string;
@@ -84,13 +84,13 @@ const Form = (): JSX.Element => {
           <button
             disabled={isSubmiting}
             type="submit"
-            className="text-white bg-red-500 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+            className="text-white bg-primary box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
           >
             {isSubmiting ? 'submiting...' : 'submit'}
           </button>
           <button
             type="button"
-            className="mx-20 border-red-500 border-2 rounded-4xl"
+            className="mx-20 border-primary border-2 rounded-4xl"
           >
             <Link className="p-3.5" to={'/'}>
               Back To Home

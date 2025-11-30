@@ -11,10 +11,10 @@ const MainNavigation = (): JSX.Element => {
         <img className="w-30 h-30" src={logo} alt="MIK-HUB image" />
       </Link>
       <ul className="text-white text-2xl w-96 flex h-fit justify-between align-middle ">
-        <li className="shadow-2xl hover:shadow-red-500">
+        <li className="shadow-2xl hover:shadow-primary">
           <NavLink
             className={({ isActive }) =>
-              isActive ? 'shadow-2xl shadow-red-500 text-red-500' : undefined
+              isActive ? 'shadow-2xl shadow-red-500 text-primary' : undefined
             }
             to={'movies'}
             end
@@ -22,10 +22,10 @@ const MainNavigation = (): JSX.Element => {
             MOVIES
           </NavLink>
         </li>
-        <li className="shadow-2xl hover:shadow-red-500">
+        <li className="shadow-2xl hover:shadow-primary">
           <NavLink
             className={({ isActive }) =>
-              isActive ? 'shadow-2xl shadow-red-500 text-red-500' : undefined
+              isActive ? 'shadow-2xl shadow-primary text-primary' : undefined
             }
             to={'series'}
           >
