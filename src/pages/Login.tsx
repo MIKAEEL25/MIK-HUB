@@ -5,7 +5,6 @@ import Form from '../components/Form';
 const Login = (): JSX.Element => {
   return (
     <>
-      
       <Form />
     </>
   );

@@ -1,14 +1,9 @@
 import type React from 'react';
 import { useState, type JSX } from 'react';
 import { Link, useNavigation, useNavigate } from 'react-router-dom';
+import type { SignUpFormState } from '../models/SignUpForm';
+import Inputs from './Inputs';
 
-interface SignUpFormState {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
 let errorContent: string;
 
 const Form = (): JSX.Element => {
@@ -23,7 +18,7 @@ const Form = (): JSX.Element => {
   const navigate = useNavigate();
   const navigation = useNavigation();
   const isSubmiting = navigation.state === 'submitting';
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHadnler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
@@ -31,7 +26,7 @@ const Form = (): JSX.Element => {
     event.preventDefault();
     if (formData.confirmPassword.trim() !== formData.password.trim()) {
       setIsError(true);
-      errorContent = '!passwords does not match';
+      errorContent = '!Passwords Does Not Match';
       return;
     }
     setIsError(false);
@@ -48,97 +43,42 @@ const Form = (): JSX.Element => {
           </p>
         )}
         <form onSubmit={submitHandler} className="max-w-md mx-auto my-auto">
-          <div className="relative z-0 w-full mb-8 group ">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              className="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer autofill:transition-colors autofill:duration-[5000000ms]"
-              placeholder=" "
-              onChange={handleChange}
-              value={formData.email}
-              required
-            />
-            <label
-              htmlFor="email"
-              className="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10  peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-            >
-              Email address
-            </label>
-          </div>
-          <div className="relative z-0 w-full mb-5 group">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              className="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer autofill:transition-colors autofill:duration-[5000000ms]"
-              placeholder=" "
-              onChange={handleChange}
-              value={formData.password}
-              required
-            />
-            <label
-              htmlFor="password"
-              className="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-            >
-              Password
-            </label>
-          </div>
-          <div className="relative z-0 w-full mb-5 group">
-            <input
-              type="password"
-              name="confirmPassword"
-              id="confirmPassword"
-              className="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer autofill:transition-colors autofill:duration-[5000000ms]"
-              placeholder=" "
-              onChange={handleChange}
-              value={formData.confirmPassword}
-              required
-            />
-            <label
-              htmlFor="confirmPassword"
-              className="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-            >
-              Confirm password
-            </label>
-          </div>
+          <Inputs
+            type="email"
+            name="email"
+            title="Email Address"
+            handleChange={onChangeHadnler}
+            inputValue={formData.email}
+          />
+          <Inputs
+            type="password"
+            name="password"
+            title="Password"
+            handleChange={onChangeHadnler}
+            inputValue={formData.password}
+          />
+          <Inputs
+            type="password"
+            name="confirmPassword"
+            title="confirm Password"
+            handleChange={onChangeHadnler}
+            inputValue={formData.confirmPassword}
+          />
           <div className="grid md:grid-cols-2 md:gap-6">
-            <div className="relative z-0 w-full mb-5 group">
-              <input
-                type="text"
-                name="firstName"
-                id="firstName"
-                className="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer autofill:transition-colors autofill:duration-[5000000ms]"
-                placeholder=" "
-                onChange={handleChange}
-                value={formData.firstName}
-                required
-              />
-              <label
-                htmlFor="firstName"
-                className="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-              >
-                First name
-              </label>
-            </div>
-            <div className="relative z-0 w-full mb-5 group">
-              <input
-                type="text"
-                name="lastName"
-                id="lastName"
-                className="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer autofill:transition-colors autofill:duration-[5000000ms]"
-                placeholder=" "
-                onChange={handleChange}
-                value={formData.lastName}
-                required
-              />
-              <label
-                htmlFor="lastName"
-                className="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
-              >
-                Last name
-              </label>
-            </div>
+            <Inputs
+              type="text"
+              name="firstName"
+              title="First Name"
+              handleChange={onChangeHadnler}
+              inputValue={formData.firstName}
+            />
+            <Inputs
+              type="text"
+              name="lastName"
+              title="Last Name"
+              handleChange={onChangeHadnler}
+              inputValue={formData.lastName}
+            />
           </div>
           <div className="grid md:grid-cols-2 md:gap-6"></div>
           <button
