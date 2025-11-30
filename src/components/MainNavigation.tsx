@@ -39,7 +39,7 @@ const MainNavigation = (): JSX.Element => {
             color: '#ff0000',
           }}
           transition={{ type: 'spring', stiffness: 600 }}
-          className="bg-red-950 rounded-2xl p-1"
+          className="bg-red-900 rounded-2xl p-1"
         >
           <NavLink to={'/login'}>LOGIN</NavLink>
         </motion.li>
