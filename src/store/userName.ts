@@ -19,4 +19,4 @@ const userNameSlicie = createSlice({
 });
 
 export const userNameActions = userNameSlicie.actions;
-export default userNameSlicie.reducer
+export default userNameSlicie.reducer;

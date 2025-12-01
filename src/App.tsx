@@ -3,6 +3,7 @@ import RootLayout from './pages/RootLayout';
 import Movies from './pages/Movies';
 import Series from './pages/Series';
 import Login from './pages/Login';
+import Favorites from './pages/Favorites';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
         path: 'series',
         element: <Series />,
       },
+      { path: 'favorites', element: <Favorites /> },
     ],
   },
   { path: '/login', element: <Login /> },
