@@ -1,6 +1,10 @@
 import type React from 'react';
 import { useState, type JSX } from 'react';
 import { Link, useNavigation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../store/auth';
+import { userNameActions } from '../store/userName';
+
 import type { SignUpFormState } from '../models/SignupForm';
 import Inputs from './Inputs';
 
@@ -15,6 +19,7 @@ const Form = (): JSX.Element => {
     password: '',
     confirmPassword: '',
   });
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const navigation = useNavigation();
   const isSubmiting = navigation.state === 'submitting';
@@ -31,6 +36,8 @@ const Form = (): JSX.Element => {
     }
     setIsError(false);
     console.log(formData);
+    console.log(dispatch(authActions.login()));
+    console.log(dispatch(userNameActions.userNameStore(formData.firstName)));
     navigate('/');
   };
 
