@@ -2,9 +2,7 @@ import type { JSX } from 'react';
 
 const Series = (): JSX.Element => {
   return (
-    <div className="top-0 absolute">
-      <p>Series</p>
-    </div>
+    <div className="absolute top-40 left-0 text-center right-0">Series</div>
   );
 };
 

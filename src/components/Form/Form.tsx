@@ -7,6 +7,7 @@ import { userNameActions } from '../../store/userName';
 
 import type { SignUpFormState } from './Types';
 import Inputs from '../Input/Input';
+import Button from '../Button/Button';
 let errorContent: string;
 
 const Form = (): JSX.Element => {
@@ -87,21 +88,14 @@ const Form = (): JSX.Element => {
             />
           </div>
           <div className="grid md:grid-cols-2 md:gap-6"></div>
-          <button
-            disabled={isSubmiting}
-            type="submit"
-            className="text-white bg-primary box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-          >
-            {isSubmiting ? 'submiting...' : 'submit'}
-          </button>
-          <button
-            type="button"
-            className="mx-20 border-primary border-2 rounded-4xl"
-          >
+          <Button type="submit">
+            {isSubmiting ? 'Submiting...' : 'Submit'}
+          </Button>
+          <Button type="button">
             <Link className="p-3.5" to={'/'}>
               Back To Home
             </Link>
-          </button>
+          </Button>
         </form>
       </div>
     </>
