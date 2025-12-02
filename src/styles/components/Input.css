@@ -1,6 +1,11 @@
 .input {
-  @apply block py-2.5 px-0 w-full text-sm text-heading bg-transparent
-   border-0 border-b-2 border-default-medium appearance-none
-    focus:outline-none focus:ring-0 focus:border-brand peer
+  @apply block py-2.5 px-0 w-full text-sm bg-transparent
+   border-0 border-b-2 appearance-none
+   rounded-md
+    focus:outline-none focus:ring-0 
+    focus:bg-red-100/30
+    transition-colors
+    duration-300
+    ease-in-out
      autofill:transition-colors autofill:duration-5000000;
 }

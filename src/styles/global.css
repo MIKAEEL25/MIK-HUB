@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import './components/Input.css';
+@import './components/Label.css';
 @tailwind utilities;
 
 @layer base {

@@ -22,7 +22,7 @@ const Inputs = ({
       />
       <label
         htmlFor={name}
-        className=""
+        className="label"
       >
         {title}
       </label>
