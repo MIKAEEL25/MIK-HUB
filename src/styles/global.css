@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@import './components/Input.css';
+@tailwind utilities;
 
 @layer base {
   html {

@@ -2,12 +2,11 @@ import type React from 'react';
 import { useState, type JSX } from 'react';
 import { Link, useNavigation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { authActions } from '../store/auth';
-import { userNameActions } from '../store/userName';
+import { authActions } from '../../store/auth';
+import { userNameActions } from '../../store/userName';
 
-import type { SignUpFormState } from '../models/SignupForm';
-import Inputs from './Inputs';
-
+import type { SignUpFormState } from './Types';
+import Inputs from '../Input/Input';
 let errorContent: string;
 
 const Form = (): JSX.Element => {
@@ -36,7 +35,7 @@ const Form = (): JSX.Element => {
     }
     setIsError(false);
     console.log(formData);
-    dispatch(authActions.login())
+    dispatch(authActions.login());
     dispatch(userNameActions.userNameStore(formData.firstName));
     navigate('/');
   };
