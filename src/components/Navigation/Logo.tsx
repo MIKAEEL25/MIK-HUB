@@ -7,7 +7,7 @@ import logo from '../../assets/logo.png';
 const Logo = (): JSX.Element => {
   return (
     <Link to={'/'}>
-      <img className="w-30 h-30" src={logo} alt="MIK-HUB image" />
+      <img className="w-30 h-30 absolute top-0" src={logo} alt="MIK-HUB image" />
     </Link>
   );
 };

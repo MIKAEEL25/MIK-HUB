@@ -4,6 +4,9 @@ import Movies from './pages/Movies';
 import Series from './pages/Series';
 import Login from './pages/Login';
 import Favorites from './pages/Favorites';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from './util/http';
+import MovieDetails from './pages/MovieDetails';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +21,8 @@ const router = createBrowserRouter([
         path: 'series',
         element: <Series />,
       },
+      { path: '/movies/:movieId', element: <MovieDetails /> },
+      { path: '/series/:movieId', element: <MovieDetails /> },
       { path: 'favorites', element: <Favorites /> },
     ],
   },
@@ -25,7 +30,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

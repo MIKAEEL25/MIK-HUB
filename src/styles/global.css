@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @import './components/Input.css';
 @import './components/Label.css';
-@tailwind utilities;
+@import './components/MovieCard.css';
 
 @layer base {
   html {

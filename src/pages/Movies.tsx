@@ -1,9 +1,14 @@
-import type { JSX } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { fetchMovies } from '../util/http';
+import { sampleMovies } from '../util/Dummy-movies';
+import Movie from '../components/MovieCard/Movie';
 
-const Movies = (): JSX.Element => {
+const Movies = () => {
+  const { data } = useQuery({ queryKey: ['movies'], queryFn: fetchMovies });
+  console.log(data);
   return (
-    <div className="absolute top-40 left-0 text-center right-0">
-      MOVIES
+    <div className="absolute top-27 left-0 text-center right-0">
+      <Movie data={sampleMovies} />
     </div>
   );
 };
