@@ -1,9 +1,9 @@
 import type { JSX } from 'react';
-import type { MovieType } from './Type';
-import Image from './Image';
-import Header from './Header';
-import Banner from './Banner';
 import { Link } from 'react-router-dom';
+
+import { Image, Banner, Header } from './Index';
+
+import type { MovieType } from './Type';
 
 const MovieCard = ({ movie }: { movie: MovieType }): JSX.Element => {
   return (
@@ -14,7 +14,7 @@ const MovieCard = ({ movie }: { movie: MovieType }): JSX.Element => {
         aria-labelledby={`movie-title-${movie.id}`}
       >
         <div className="relative h-64 sm:h-72 md:h-80 bg-gray-100">
-          <Image title={movie.title} url={movie.imageUrl} />
+          <Image className='image' title={movie.title} url={movie.imageUrl} />
           <Banner
             genre={movie.genre}
             title={movie.title}
