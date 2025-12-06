@@ -8,10 +8,12 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './util/http';
 import MovieDetails from './pages/MovieDetails';
 import SerieDetails from './pages/SerieDetails';
+import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
+    errorElement: <ErrorPage />,
     element: <RootLayout />,
     children: [
       {

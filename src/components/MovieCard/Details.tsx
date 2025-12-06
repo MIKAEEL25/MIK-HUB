@@ -9,9 +9,9 @@ const Details: React.FC<{ movie: MovieType }> = ({ movie }) => {
       <Image
         className={imageDetailStyle}
         title={movie.title}
-        url={movie.imageUrl}
+        url={movie.poster_path}
       />
-      <Detail title={movie.title} genre={movie.genre} year={movie.year} />
+      <Detail title={movie.title} vote={movie.vote_average} year={movie.release_date} />
     </div>
   );
 };

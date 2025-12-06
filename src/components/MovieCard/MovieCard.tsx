@@ -14,11 +14,11 @@ const MovieCard = ({ movie }: { movie: MovieType }): JSX.Element => {
         aria-labelledby={`movie-title-${movie.id}`}
       >
         <div className="relative h-64 sm:h-72 md:h-80 bg-gray-100">
-          <Image className='image' title={movie.title} url={movie.imageUrl} />
+          <Image className='image' title={movie.title} url={movie.poster_path} />
           <Banner
             genre={movie.genre}
             title={movie.title}
-            year={movie.year}
+            year={movie.release_date}
             id={movie.id}
           />
         </div>

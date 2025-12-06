@@ -59,13 +59,13 @@ export const Banner: React.FC<{
 
 export const Detail: React.FC<{
   title: string;
-  genre: string;
+  vote: number | undefined;
   year?: number;
-}> = ({ genre, title, year }) => {
+}> = ({ vote, title, year }) => {
   return (
     <div className="absolute left-0 top-0 w-3/4 text-left p-5">
       <h1 className="text-center text-5xl">{title}</h1>
-      <p className="text-2xl p-5">Genre : {genre}</p>
+      <p className="text-2xl p-5">Vote : {vote}</p>
       <p className="text-2xl p-5">Year : {year}</p>
       <p className="text-stone-500 text-2xl p-5">
         <span className="italic text-3xl text-primary">STORY</span> : Lorem

@@ -3,12 +3,15 @@ import { QueryClient } from '@tanstack/react-query';
 export const queryClient = new QueryClient();
 
 export async function fetchMovies() {
-  const url = 'https://api.themoviedb.org/3/movie/changes';
+  const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+  const accessToken =
+    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YWEzZGZlYzUyMDc2ZmU4NzY5ZGI3OGZiODk3Mjk4OSIsIm5iZiI6MTU5NzE0MzkyMy45NTIsInN1YiI6IjVmMzI3YjczMTk2NzU3MDAzN2IyMDg3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ji9ZWjlzQayocotWvlrHIxZl2Dd40PyYV9gzvBDtlNo';
   const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer Authorazition',
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
     },
   };
 
@@ -16,5 +19,6 @@ export async function fetchMovies() {
   if (!response.ok) {
     throw new Error('Failed to fetch movies');
   }
-  return response.json();
+  const data = await response.json();
+  return data.results;
 }
