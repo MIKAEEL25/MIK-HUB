@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { Details } from '../components';
+import { Details, LoadSpinner } from '../components';
 import { fetchMovie } from '../util/http';
 
 const MovieDetails = () => {
@@ -13,7 +13,7 @@ const MovieDetails = () => {
   let content;
 
   if (isLoading) {
-    content = <p className="text-3xl text-center text-primary absolute top-30 left-1/2">Loading...</p>;
+    content = <LoadSpinner />;
   }
   if (data) {
     content = <Details movie={data} />;

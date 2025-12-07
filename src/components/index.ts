@@ -14,3 +14,5 @@ export * from './MovieCard/Index';
 export { default as Logo } from './Navigation/Logo';
 export { default as MainNavigation } from './Navigation/MainNavigation';
 export { default as NavigationItems } from './Navigation/NavigationItems';
+
+export { default as LoadSpinner } from './LoadSpinner/LoadSpinner';

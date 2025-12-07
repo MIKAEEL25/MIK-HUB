@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import {Movie} from '../components';
+import {LoadSpinner, Movie} from '../components';
 import { fetchMovies } from '../util/http';
 
 const Series = (): JSX.Element => {
@@ -12,7 +12,7 @@ const Series = (): JSX.Element => {
   let content;
 
   if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <LoadSpinner />;
   }
 
   if (data) {

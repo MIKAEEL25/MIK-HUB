@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Details } from '../components';
+import { Details, LoadSpinner } from '../components';
 import { useQuery } from '@tanstack/react-query';
 import { fetchSerie } from '../util/http';
 
@@ -9,12 +9,11 @@ const SerieDetails = () => {
     queryKey: ['series', serieId.serieId],
     queryFn: () => fetchSerie(Number(serieId.serieId)),
   });
-  console.log(data);
 
   let content;
 
   if (isLoading) {
-    content = <p className="text-3xl text-center text-primary absolute top-30 left-1/2">Loading...</p>;
+    content = <LoadSpinner />;
   }
   if (data) {
     content = <Details movie={data} />;
