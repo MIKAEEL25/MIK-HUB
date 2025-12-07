@@ -1,20 +1,27 @@
-// import { useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { fetchMovies } from '../util/http';
-import Movie from '../components/MovieCard/Movie';
-import { useEffect, useState } from 'react';
+import { Movie } from '../components';
 
 const Movies = () => {
-  const [shows, setShows] = useState([]);
-  useEffect(() => {
-    fetchMovies().then((data) => {
-      setShows(data);
-    });
-  }, []);
+  const { data, isLoading } = useQuery({
+    queryKey: ['movies'],
+    queryFn: fetchMovies,
+  });
+
+  let content;
+
+  if (isLoading) {
+    content = <p>Loading...</p>;
+  }
+
+  if (data) {
+    content = <Movie data={data.results} />;
+  }
 
   return (
-    <div className="absolute top-27 left-0 text-center right-0">
-      <Movie data={shows} />
-    </div>
+    <section className="absolute top-27 left-0 text-center right-0">
+      <div className="w-fit m-auto">{content}</div>
+    </section>
   );
 };
 

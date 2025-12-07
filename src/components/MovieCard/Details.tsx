@@ -11,7 +11,14 @@ const Details: React.FC<{ movie: MovieType }> = ({ movie }) => {
         title={movie.title}
         url={movie.poster_path}
       />
-      <Detail title={movie.title} vote={movie.vote_average} year={movie.release_date} />
+      <Detail
+        title={movie.title}
+        rate={movie.vote_average}
+        year={movie.release_date}
+        story={movie.overview}
+        votes={movie.vote_count}
+        genres={[...movie.genres].map((g) => g.name).join(', ')}
+      />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import DarkVeil from './Darkveil';
 
 const Background = () => {
   return (
-    <div className="w-dvw h-dvh relative">
+    <div className="h-screen relative">
       <DarkVeil />
     </div>
   );
