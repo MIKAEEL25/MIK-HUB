@@ -3,8 +3,6 @@ import type { JSX } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-
-
 import type { RootState } from '../../store';
 import NavigationItems from './NavigationItems';
 import Logo from './Logo';

@@ -20,7 +20,11 @@
     width: screen;
   }
   .pulse-shadow {
-    animation:pulseShadow 2.5s ease infinite;
+    animation: pulseShadow 2.5s ease infinite;
+  }
+  .scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-color: var(--color-primary) transparent;
   }
 }
 
@@ -28,19 +32,17 @@
   --color-primary: var(--color-red-500);
 }
 
-
 @keyframes pulseShadow {
- 0% {
-      box-shadow: 0 0 0px 0px rgba(0,0,0,0.0);
-    }
-    30% {
-      box-shadow: 0 0 18px 4px rgba(253, 0, 0, 0.137); 
-    }
-    60% {
-      box-shadow: 0 0 28px 10px rgba(255, 0, 0, 0.384);
-    }
-    100% {
-      box-shadow: 0 0 0px 0px rgba(0,0,0,0.0);
-    }
-
+  0% {
+    box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0);
+  }
+  30% {
+    box-shadow: 0 0 18px 4px rgba(253, 0, 0, 0.137);
+  }
+  60% {
+    box-shadow: 0 0 28px 10px rgba(255, 0, 0, 0.384);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0);
+  }
 }

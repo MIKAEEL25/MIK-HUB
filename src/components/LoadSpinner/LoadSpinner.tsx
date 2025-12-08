@@ -1,6 +1,7 @@
 import { TailSpin } from 'react-loader-spinner';
+import type { JSX } from 'react';
 
-const LoadSpinner = () => {
+const LoadSpinner = (): JSX.Element => {
   return (
     <div className="text-3xl text-center text-primary absolute top-30 left-1/2">
       <TailSpin

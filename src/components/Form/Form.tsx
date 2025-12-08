@@ -45,7 +45,7 @@ const Form = (): JSX.Element => {
     <>
       <div className="h-dvh w-dvw flex justify-center align-middle bg-linear-to-t from-red-950 to-black">
         {isError && (
-          <p className="w-screen h-6 absolute top-32 text-2xl text-center">
+          <p className="w-screen animate-pulse h-6 absolute top-32 text-2xl text-center text-primary">
             {errorContent}
           </p>
         )}

@@ -1,10 +1,10 @@
 import type { JSX } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import {LoadSpinner, Movie} from '../components';
+import { LoadSpinner, Movie } from '../components';
 import { fetchMovies } from '../util/http';
 
 const Series = (): JSX.Element => {
- const { data, isLoading } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['series'],
     queryFn: fetchMovies,
   });
@@ -16,7 +16,12 @@ const Series = (): JSX.Element => {
   }
 
   if (data) {
-    content = <Movie data={data.results} />;
+    content = (
+      <Movie
+        data={data.results}
+        className="grid justify-items-center w-fit m-auto grid-rows-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-30"
+      />
+    );
   }
 
   return (

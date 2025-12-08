@@ -5,9 +5,9 @@ import { Image, Banner } from './Index';
 
 import type { MovieType } from './Type';
 
-const MovieCard = ({ movie }: { movie: MovieType }): JSX.Element => {
+const MovieCard = ({ movie , route }: { movie: MovieType , route : string }): JSX.Element => {
   return (
-    <Link to={`${movie.id}`}>
+    <Link to={`${route}${movie.id}`}>
       <div
         className="group w-96 relative rounded-lg overflow-hidden shadow-sm hover:shadow-lg focus-within:shadow-lg transition-shadow duration-200"
         tabIndex={0}

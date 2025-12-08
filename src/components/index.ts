@@ -16,3 +16,9 @@ export { default as MainNavigation } from './Navigation/MainNavigation';
 export { default as NavigationItems } from './Navigation/NavigationItems';
 
 export { default as LoadSpinner } from './LoadSpinner/LoadSpinner';
+
+export { default as HorizantalScroller } from './HorizantalScroller/HorizantalScroller';
+
+export * from './HorizantalScroller/Index'
+
+export { default as SearchBar } from './SearchBar/SearchBar';

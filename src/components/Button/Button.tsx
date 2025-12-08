@@ -19,7 +19,7 @@ const Button = ({
         color: '#ff0000',
       }}
       transition={{ type: 'spring', stiffness: 600 }}
-      className="bg-red-500 rounded-2xl p-1 m-1.5"
+      className="bg-primary rounded-2xl p-1 m-1.5 h-fit"
     >
       {children}
     </motion.button>

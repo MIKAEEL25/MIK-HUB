@@ -9,13 +9,14 @@ import { queryClient } from './util/http';
 import MovieDetails from './pages/MovieDetails';
 import SerieDetails from './pages/SerieDetails';
 import ErrorPage from './pages/ErrorPage';
-
+import RootMovies from './pages/RootMovies'
 const router = createBrowserRouter([
   {
     path: '/',
     errorElement: <ErrorPage />,
     element: <RootLayout />,
     children: [
+      { index: true, element: <RootMovies /> },
       {
         path: 'movies',
         element: <Movies />,
