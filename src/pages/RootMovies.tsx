@@ -13,9 +13,15 @@ const RootMovies = (): JSX.Element => {
   if (isLoading) {
     content = <LoadSpinner />;
   }
-
   if (data) {
     content = <RootMovie data={data.results} route="movies/" />;
+  }
+    if (!data && !isLoading) {
+    content = (
+      <p className="text-primary absolute top-1/2 w-full animate-pulse text-4xl text-center">
+        Sorry , Failed To Fetch Movie
+      </p>
+    );
   }
   return <>{content}</>;
 };

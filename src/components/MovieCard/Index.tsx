@@ -1,5 +1,3 @@
-import type React from 'react';
-
 export const Image: React.FC<{
   url: string;
   title: string;

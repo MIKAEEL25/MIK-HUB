@@ -1,11 +1,11 @@
-import { motion } from 'motion/react';
 import type { JSX } from 'react';
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import type { RootState } from '../../store';
 import NavigationItems from './NavigationItems';
 import Logo from './Logo';
+import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 const MainNavigation = (): JSX.Element => {
   const isLoggedIn = useSelector(
@@ -15,25 +15,17 @@ const MainNavigation = (): JSX.Element => {
     (state: RootState) => state.rootReducer.user.uName
   );
   return (
-    <header className=" flex justify-between align-middle absolute top-0 left-0 bg-transparent w-full p-6">
-      <Logo />
-      <ul className="text-white text-2xl w-2/5 flex h-fit justify-between align-middle">
+    <header className="flex justify-between align-middle fixed z-10 top-0 left-0 bg-black w-full p-6">
+      <ul className="text-white text-3xl w-full flex h-fit justify-between">
+        <Logo />
         <NavigationItems title="movies" />
         <NavigationItems title="series" />
         {isLoggedIn && <NavigationItems title="favorites" />}
-        <motion.li
-          whileHover={{
-            scale: 1.1,
-            backgroundColor: '#ffffff',
-            color: '#ff0000',
-          }}
-          transition={{ type: 'spring', stiffness: 600 }}
-          className="bg-red-900 rounded-2xl p-1"
-        >
-          <NavLink to={'/login'}>
-            {isLoggedIn ? `${userName}` : 'LOGIN'}
-          </NavLink>
-        </motion.li>
+        <Button>
+          <Link className="p-3.5" to={'/login'}>
+            {userName ? userName : 'LOGIN'}
+          </Link>
+        </Button>
       </ul>
     </header>
   );

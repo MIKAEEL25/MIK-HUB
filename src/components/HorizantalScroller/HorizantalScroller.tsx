@@ -28,7 +28,7 @@ const HorizontalScroller: React.FC<{ children: React.ReactNode }> = ({
         {children}
         
         <Button>
-          <Link to={'movies'} className='p-3'>MORE</Link>
+          <Link to={'movies'} className='p-3 h-full'>MORE</Link>
         </Button>
        
       </div>

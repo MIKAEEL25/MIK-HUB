@@ -1,13 +1,12 @@
 import { Outlet } from 'react-router-dom';
 
-import { Background, MainNavigation, SearchBar } from '../components';
+import { Background, MainNavigation } from '../components';
 
 const RootLayout: React.FC = () => {
   return (
     <>
       <Background />
       <MainNavigation />
-      <SearchBar />
       <Outlet />
     </>
   );

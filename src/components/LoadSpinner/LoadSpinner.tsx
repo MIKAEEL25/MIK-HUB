@@ -3,7 +3,7 @@ import type { JSX } from 'react';
 
 const LoadSpinner = (): JSX.Element => {
   return (
-    <div className="text-3xl text-center text-primary absolute top-30 left-1/2">
+    <div className="text-3xl text-center text-primary absolute top-2/5 left-1/2">
       <TailSpin
         visible={true}
         height="80"
