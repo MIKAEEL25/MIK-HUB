@@ -1,3 +1,6 @@
+import { useRef } from 'react';
+import type { CastType } from './Type';
+
 export const Image: React.FC<{
   url: string;
   title: string;
@@ -47,16 +50,56 @@ export const Detail: React.FC<{
   genres: string;
 }> = ({ rate, title, year, story, genres, votes }) => {
   return (
-    <div className="absolute left-0 top-0 w-3/4 text-left p-5">
-      <h1 className="text-center text-5xl">{title}</h1>
-      <p className="text-2xl p-5">
-        Rate : {rate} Of <span className="text-primary">{votes}</span> Votes
-      </p>
-      <p className="text-2xl p-5">Release-Date : {year}</p>
-      <p className="text-2xl p-5">Genres : {genres}</p>
-      <p className="text-stone-500 text-2xl p-5">
-        <span className="italic text-3xl text-primary">STORY : </span> {story}
-      </p>
+    <>
+      <div className="absolute left-0 top-0 w-3/4 text-left p-5">
+        <h1 className="text-center text-5xl">{title}</h1>
+        <p className="text-2xl p-5">
+          <span className="italic text-3xl text-primary">RATE : </span>
+          <span className="text-yellow-400">{rate} </span>
+          Of <span className="text-yellow-400"> {votes} </span>
+           Votes
+        </p>
+        <p className="text-2xl p-5">
+          <span className="italic text-3xl text-primary">RELEASE-DATE : </span>
+          {year}
+        </p>
+        <p className="text-2xl p-5">
+          <span className="italic text-3xl text-primary">GENRES : </span>
+          {genres}
+        </p>
+        <p className="text-stone-400 text-2xl p-5 border-2 rounded-3xl border-purple-950">
+          <span className="italic text-3xl text-primary">STORY : </span> {story}
+        </p>
+      </div>
+    </>
+  );
+};
+
+export const Cast: React.FC<{ cast: CastType[] }> = ({ cast }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const onWheel = (e: React.WheelEvent) => {
+    const el = ref.current;
+    if (!el) return;
+
+    if (!e.shiftKey) {
+      el.scrollLeft += e.deltaY;
+    }
+  };
+  return (
+    <div
+      ref={ref}
+      onWheel={onWheel}
+      className="h-2/6 w-3/4 absolute top-8/12 left-11 text-primary scrollbar scroll-smooth flex gap-40 overflow-x-auto overflow-y-hidden overscroll-contain scrollbar-hide text-center right-0"
+    >
+      {cast.map((c: CastType) => (
+        <Image
+          key={c.id}
+          url={`${c.profile_path}`}
+          className="h-60 w-60"
+          title={`${c.name}`}
+        />
+      ))}
     </div>
   );
 };

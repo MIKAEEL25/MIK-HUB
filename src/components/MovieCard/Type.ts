@@ -22,3 +22,10 @@ export interface SerieType {
   vote_average?: number;
   vote_count?: number;
 }
+
+export interface CastType {
+  id: string | number;
+  name: string;
+  character: string;
+  profile_path: string;
+}

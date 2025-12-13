@@ -38,7 +38,7 @@ export async function fetchMovie(id: string | number) {
 
   const response = await fetch(url, options);
   if (!response.ok) {
-    throw new Error('Failed to fetch movies');
+    throw new Error('Failed to fetch movie');
   }
   const data = await response.json();
   return data;
@@ -59,7 +59,7 @@ export async function fetchSeries() {
 
   const response = await fetch(url, options);
   if (!response.ok) {
-    throw new Error('Failed to fetch movies');
+    throw new Error('Failed to fetch series');
   }
   const data = await response.json();
   return data;
@@ -80,7 +80,7 @@ export async function fetchSerie(id: number | string) {
 
   const response = await fetch(url, options);
   if (!response.ok) {
-    throw new Error('Failed to fetch movies');
+    throw new Error('Failed to fetch serie');
   }
   const data = await response.json();
   return data;
@@ -108,6 +108,51 @@ export async function fetchSearch({ searchTerm, signal , sort }: search) {
   const response = await fetch(url, options);
   if (!response.ok) {
     throw new Error('Failed to fetch movies');
+  }
+  const data = await response.json();
+  return data;
+}
+
+
+
+
+export async function fetchMoviesCast(id: string | number) {
+  const url = `https://api.themoviedb.org/3/movie/${id}/credits`;
+  const accessToken =
+    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YWEzZGZlYzUyMDc2ZmU4NzY5ZGI3OGZiODk3Mjk4OSIsIm5iZiI6MTU5NzE0MzkyMy45NTIsInN1YiI6IjVmMzI3YjczMTk2NzU3MDAzN2IyMDg3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ji9ZWjlzQayocotWvlrHIxZl2Dd40PyYV9gzvBDtlNo';
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    throw new Error('Failed to fetch cast');
+  }
+  const data = await response.json();
+  return data;
+}
+
+export async function fetchSeriesCast(id: string | number) {
+  const url = `https://api.themoviedb.org/3/tv/${id}/credits`;
+  const accessToken =
+    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YWEzZGZlYzUyMDc2ZmU4NzY5ZGI3OGZiODk3Mjk4OSIsIm5iZiI6MTU5NzE0MzkyMy45NTIsInN1YiI6IjVmMzI3YjczMTk2NzU3MDAzN2IyMDg3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ji9ZWjlzQayocotWvlrHIxZl2Dd40PyYV9gzvBDtlNo';
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    throw new Error('Failed to fetch cast');
   }
   const data = await response.json();
   return data;

@@ -1,11 +1,17 @@
 import type { JSX } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Image, Banner } from './Index';
+import { Image, Banner } from '.';
 
 import type { MovieType, SerieType } from './Type';
 
-export const MovieCard = ({ movie , route }: { movie: MovieType , route : string }): JSX.Element => {
+export const MovieCard = ({
+  movie,
+  route,
+}: {
+  movie: MovieType;
+  route: string;
+}): JSX.Element => {
   return (
     <Link to={`${route}${movie.id}`}>
       <div
@@ -14,19 +20,25 @@ export const MovieCard = ({ movie , route }: { movie: MovieType , route : string
         aria-labelledby={`movie-title-${movie.id}`}
       >
         <div className="relative h-144 sm:h-144 md:h-144">
-          <Image className='image' title={movie.title} url={movie.poster_path} />
-          <Banner
+          <Image
+            className="image"
             title={movie.title}
-            year={movie.release_date}
-            id={movie.id}
+            url={movie.poster_path}
           />
+          <Banner title={movie.title} year={movie.release_date} id={movie.id} />
         </div>
       </div>
     </Link>
   );
 };
 
-export const SerieCard = ({ movie , route }: { movie: SerieType , route : string }): JSX.Element => {
+export const SerieCard = ({
+  movie,
+  route,
+}: {
+  movie: SerieType;
+  route: string;
+}): JSX.Element => {
   return (
     <Link to={`${route}${movie.id}`}>
       <div
@@ -35,7 +47,7 @@ export const SerieCard = ({ movie , route }: { movie: SerieType , route : string
         aria-labelledby={`movie-title-${movie.id}`}
       >
         <div className="relative h-144 sm:h-144 md:h-144">
-          <Image className='image' title={movie.name} url={movie.poster_path} />
+          <Image className="image" title={movie.name} url={movie.poster_path} />
           <Banner
             title={movie.name}
             year={movie.first_air_date}
@@ -46,4 +58,3 @@ export const SerieCard = ({ movie , route }: { movie: SerieType , route : string
     </Link>
   );
 };
-

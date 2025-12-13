@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import './components/Inputs.css';
+@import './components/Input.css';
 @import './components/Label.css';
 @import './components/MovieCard.css';
 

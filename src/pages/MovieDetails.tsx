@@ -1,24 +1,39 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { LoadSpinner , MovieDetails as Details } from '../components';
-import { fetchMovie } from '../util/http';
+import { LoadSpinner, MovieDetails as Details, Cast } from '@/components';
+import { fetchMovie, fetchMoviesCast } from '../util/http';
 
 const MovieDetails = () => {
   const movieId = useParams();
-  const { data, isLoading } = useQuery({
+  const {
+    data: movie,
+    isLoading: movieLoading,
+    isSuccess: movieSuccess,
+  } = useQuery({
     queryKey: ['movie', movieId.movieId],
     queryFn: () => fetchMovie(Number(movieId.movieId)),
   });
 
+  const { data: cast, isLoading: castLoading } = useQuery({
+    queryKey: ['cast', movieId.movieId],
+    queryFn: () => fetchMoviesCast(Number(movieId.movieId)),
+    enabled: movieSuccess,
+  });
+
   let content;
 
-  if (isLoading) {
+  if (movieLoading || castLoading) {
     content = <LoadSpinner />;
   }
-  if (data) {
-    content = <Details movie={data} />;
+  if (movie || cast) {
+    content = (
+      <>
+        <Details movie={movie} />
+        {cast && <Cast cast={cast.cast} />}
+      </>
+    );
   }
-  if (!data && !isLoading) {
+  if (!movie && !cast && !movieLoading) {
     content = (
       <p className="text-primary absolute top-1/2 w-full animate-pulse text-4xl text-center">
         Sorry , Failed To Fetch Movie

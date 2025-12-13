@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchMovies } from '../util/http';
-import { LoadSpinner, Movie, SearchBar } from '../components';
+import { LoadSpinner, Movie, SearchBar } from '@/components';
 const Movies = () => {
   const { data, isLoading } = useQuery({
     queryKey: ['movies'],

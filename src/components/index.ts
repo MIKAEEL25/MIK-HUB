@@ -9,7 +9,7 @@ export { default as Input } from './Input/Input';
 export * from './MovieCard/Details';
 export * from './MovieCard/Cards';
 export * from './MovieCard/Movie';
-export * from './MovieCard/Index';
+export * from './MovieCard';
 
 export { default as Logo } from './Navigation/Logo';
 export { default as MainNavigation } from './Navigation/MainNavigation';
@@ -19,7 +19,6 @@ export { default as LoadSpinner } from './LoadSpinner/LoadSpinner';
 
 export { default as HorizantalScroller } from './HorizantalScroller/HorizantalScroller';
 
-export * from './HorizantalScroller/Index';
+export * from './HorizantalScroller/index';
 
 export { default as SearchBar } from './SearchBar/SearchBar';
-

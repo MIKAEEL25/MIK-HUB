@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
-import { LoadSpinner, RootMovie } from '../components';
+import { LoadSpinner, RootMovie } from '@/components';
 import { fetchMovies } from '../util/http';
 
 const RootMovies = (): JSX.Element => {
