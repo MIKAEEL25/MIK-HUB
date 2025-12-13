@@ -11,7 +11,6 @@ export const Image: React.FC<{
       src={`https://image.tmdb.org/t/p/w500${url}`}
       alt={title + ' poster'}
       className={`${className}`}
-      loading="lazy"
     />
   );
 };
@@ -90,7 +89,7 @@ export const Cast: React.FC<{ cast: CastType[] }> = ({ cast }) => {
     <div
       ref={ref}
       onWheel={onWheel}
-      className="h-2/6 w-3/4 absolute top-8/12 left-11 text-primary scrollbar scroll-smooth flex gap-40 overflow-x-auto overflow-y-hidden overscroll-contain scrollbar-hide text-center right-0"
+      className="h-fit w-3/4 p-4 absolute top-8/12 left-11 text-primary scrollbar scroll-smooth flex gap-30 overflow-x-auto overflow-y-hidden"
     >
       {cast.map((c: CastType) => (
         <Image

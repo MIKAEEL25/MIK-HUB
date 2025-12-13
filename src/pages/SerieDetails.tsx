@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Cast, SerieDetails as Details, LoadSpinner } from '@/components';
 import { useQuery } from '@tanstack/react-query';
-import { fetchSerie, fetchSeriesCast } from '../util/http';
+import { fetchCast, fetchSerie } from '../util/http';
 
 const SerieDetails = () => {
   const serieId = useParams();
@@ -16,7 +16,7 @@ const SerieDetails = () => {
 
   const { data: cast, isLoading: castLoading } = useQuery({
     queryKey: ['cast', serieId.serieId],
-    queryFn: () => fetchSeriesCast(Number(serieId.serieId)),
+    queryFn: () => fetchCast(Number(serieId.serieId) , 'tv'),
     enabled: serieSuccess,
   });
 
