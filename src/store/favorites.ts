@@ -1,17 +1,15 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { FavoriteType } from './Types';
+import type { AllMovie } from '@/components/MovieCard/Type';
 
-
-
-const initialFavorites : FavoriteType[] = [] ;
+const initialFavorites: AllMovie[] = [];
 
 const favoriteMovieSlice = createSlice({
   name: 'favorites',
   initialState: initialFavorites,
   reducers: {
-    favoritePush(state , actions : PayloadAction<FavoriteType>) {
-      state.unshift(actions.payload)
-    }
+    favoritePush(state, actions: PayloadAction<AllMovie>) {
+      state.unshift(actions.payload);
+    },
   },
 });
 

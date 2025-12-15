@@ -7,7 +7,7 @@ export { default as Form } from './Form/Form';
 export { default as Input } from './Input/Input';
 
 export * from './MovieCard/Details';
-export * from './MovieCard/Cards';
+export * from './MovieCard/MovieCard';
 export * from './MovieCard/Movie';
 export * from './MovieCard';
 

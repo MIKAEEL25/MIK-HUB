@@ -41,7 +41,7 @@ export const Banner: React.FC<{
 };
 
 export const Detail: React.FC<{
-  title: string;
+  title?: string;
   rate: number | undefined;
   votes?: number | undefined;
   year?: number;

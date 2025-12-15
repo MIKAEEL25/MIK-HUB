@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import type { RootState } from '@/store/index';
 import type { JSX } from 'react';
-import { Favorite } from '@/components';
+import { Movie } from '@/components';
 
 const Favorites = (): JSX.Element => {
   const favorites = useSelector(
@@ -14,7 +14,7 @@ const Favorites = (): JSX.Element => {
         {uniqueArr.length === 0 ? (
           'No Favorite Movie'
         ) : (
-          <Favorite data={uniqueArr} />
+          <Movie data={uniqueArr} />
         )}
       </div>
     </section>
