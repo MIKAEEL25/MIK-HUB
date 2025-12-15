@@ -7,9 +7,9 @@ const SearchList: React.FC<{
   sort: string;
 }> = ({ data, sort, route }) => {
   return (
-    <ul className="h-30 search-scrollbar overflow-scroll overflow-x-hidden text-center w-1/4 m-auto">
+    <ul className="h-30 search-scrollbar overflow-scroll overflow-x-hidden text-center w-1/4 m-auto p-5">
       {data.map((data: Search) => (
-        <li key={data.id}>
+        <li key={data.id} className='p-1 border-b-2 border-primary text-white'>
           <Link to={`/${route}/${data.id}`}>
             {sort === 'movie' ? data.title : data.name}
           </Link>

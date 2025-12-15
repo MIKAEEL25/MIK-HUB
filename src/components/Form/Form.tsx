@@ -35,7 +35,6 @@ const Form = (): JSX.Element => {
       return;
     }
     setIsError(false);
-    console.log(formData);
     dispatch(authActions.login());
     dispatch(userNameActions.userNameStore(formData.firstName));
     navigate('/');

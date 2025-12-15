@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 import { useSelector } from 'react-redux';
-
 import type { RootState } from '../../store';
+
 import NavigationItems from './NavigationItems';
 import Logo from './Logo';
 import Button from '../Button/Button';

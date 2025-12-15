@@ -3,7 +3,7 @@ import type { CastType } from './Type';
 
 export const Image: React.FC<{
   url: string;
-  title: string;
+  title?: string;
   className: string;
 }> = ({ url, title, className }) => {
   return (
@@ -16,7 +16,7 @@ export const Image: React.FC<{
 };
 
 export const Banner: React.FC<{
-  title: string;
+  title?: string;
   year: number | undefined;
   id: number | string;
 }> = ({ id, title, year }) => {

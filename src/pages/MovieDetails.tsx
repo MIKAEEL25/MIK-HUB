@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { LoadSpinner, MovieDetails as Details, Cast } from '@/components';
-import { fetchMovie, fetchCast } from '../util/http';
+import { fetchDetails, fetchCast } from '../util/http';
 
 const MovieDetails = () => {
   const movieId = useParams();
@@ -11,7 +11,7 @@ const MovieDetails = () => {
     isSuccess: movieSuccess,
   } = useQuery({
     queryKey: ['movie', movieId.movieId],
-    queryFn: () => fetchMovie(Number(movieId.movieId)),
+    queryFn: () => fetchDetails(Number(movieId.movieId) , 'movie'),
   });
 
   const { data: cast, isLoading: castLoading } = useQuery({

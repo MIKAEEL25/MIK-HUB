@@ -1,8 +1,23 @@
+import { useSelector } from 'react-redux';
+import type { RootState } from '@/store/index';
 import type { JSX } from 'react';
+import { Favorite } from '@/components';
 
 const Favorites = (): JSX.Element => {
+  const favorites = useSelector(
+    (state: RootState) => state.rootReducer.favorite
+  );
+  const uniqueArr = [...new Set(favorites)];
   return (
-    <div className="absolute top-40 left-0 text-center right-0">FAVORITES</div>
+    <section className="absolute left-0 text-center right-0">
+      <div className="w-fit m-auto mt-56">
+        {uniqueArr.length === 0 ? (
+          'No Favorite Movie'
+        ) : (
+          <Favorite data={uniqueArr} />
+        )}
+      </div>
+    </section>
   );
 };
 export default Favorites;

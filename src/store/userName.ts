@@ -1,8 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-
-interface UserName {
-  uName: string | null;
-}
+import type { UserName } from './Types';
 
 const initialNameState: UserName = {
   uName: null,
