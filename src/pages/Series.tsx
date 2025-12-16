@@ -2,11 +2,16 @@ import type { JSX } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { LoadSpinner, Movie, SearchBar } from '@/components';
 import { fetchSeries } from '../util/http';
+import { useSearchParams } from 'react-router-dom';
+import { Pagination } from '@/components';
 
 const Series = (): JSX.Element => {
+  const [searchParams] = useSearchParams();
+  const page = Number(searchParams.get('page')) || 1;
+
   const { data, isLoading } = useQuery({
-    queryKey: ['series'],
-    queryFn: fetchSeries,
+    queryKey: ['series', page],
+    queryFn: () => fetchSeries(page),
   });
 
   let content;
@@ -27,12 +32,15 @@ const Series = (): JSX.Element => {
   }
 
   return (
-    <section className="absolute top-50 left-0 text-center right-0">
-      <div className='mt-0'>
-        <SearchBar route='series' sort='tv' />
-      </div>
-      <div className="w-fit m-auto mt-56">{content}</div>
-    </section>
+    <>
+      <section className="absolute top-50 left-0 text-center right-0">
+        <div className="mt-0">
+          <SearchBar route="series" sort="tv" />
+        </div>
+        <div className="w-fit m-auto mt-56">{content}</div>
+        {data && <Pagination totalPages={data.total_pages} />}
+      </section>
+    </>
   );
 };
 

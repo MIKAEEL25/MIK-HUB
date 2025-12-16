@@ -24,7 +24,7 @@ const SearchBar: React.FC<{ sort: string; route: string }> = ({
 
   let content;
   if (isLoading) {
-    content = <p className="p-4 text-2xl text-primary">Searching...</p>;
+    content = <p className="p-8 text-2xl text-primary">Searching...</p>;
   }
   if (data) {
     content = (
@@ -35,7 +35,6 @@ const SearchBar: React.FC<{ sort: string; route: string }> = ({
     <div className="absolute w-full text-center">
       <form onSubmit={(e: React.FormEvent) => e.preventDefault()}>
         <input
-          // ref={searchElement}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setValue(event.target.value)
           }

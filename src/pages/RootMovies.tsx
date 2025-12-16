@@ -7,7 +7,7 @@ import { fetchMovies } from '../util/http';
 const RootMovies = (): JSX.Element => {
   const { data, isLoading } = useQuery({
     queryKey: ['movies'],
-    queryFn: fetchMovies,
+    queryFn: () => fetchMovies(1),
   });
   let content;
   if (isLoading) {
@@ -16,7 +16,7 @@ const RootMovies = (): JSX.Element => {
   if (data) {
     content = <RootMovie data={data.results} route="movies/" />;
   }
-    if (!data && !isLoading) {
+  if (!data && !isLoading) {
     content = (
       <p className="text-primary absolute top-1/2 w-full animate-pulse text-4xl text-center">
         Sorry , Failed To Fetch Movie

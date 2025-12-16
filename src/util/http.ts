@@ -3,8 +3,8 @@ import type { search } from './Types';
 
 export const queryClient = new QueryClient();
 
-export async function fetchMovies() {
-  const url = 'https://api.themoviedb.org/3/movie/popular';
+export async function fetchMovies(page : number) {
+  const url = `https://api.themoviedb.org/3/movie/popular?page=${page}`;
   const accessToken =
     'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YWEzZGZlYzUyMDc2ZmU4NzY5ZGI3OGZiODk3Mjk4OSIsIm5iZiI6MTU5NzE0MzkyMy45NTIsInN1YiI6IjVmMzI3YjczMTk2NzU3MDAzN2IyMDg3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ji9ZWjlzQayocotWvlrHIxZl2Dd40PyYV9gzvBDtlNo';
   const options = {
@@ -24,8 +24,8 @@ export async function fetchMovies() {
   return data;
 }
 
-export async function fetchSeries() {
-  const url = 'https://api.themoviedb.org/3/discover/tv';
+export async function fetchSeries(page : number) {
+  const url = `https://api.themoviedb.org/3/discover/tv?page=${page}`;
   const accessToken =
     'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YWEzZGZlYzUyMDc2ZmU4NzY5ZGI3OGZiODk3Mjk4OSIsIm5iZiI6MTU5NzE0MzkyMy45NTIsInN1YiI6IjVmMzI3YjczMTk2NzU3MDAzN2IyMDg3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ji9ZWjlzQayocotWvlrHIxZl2Dd40PyYV9gzvBDtlNo';
   const options = {

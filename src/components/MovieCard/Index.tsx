@@ -17,9 +17,10 @@ export const Image: React.FC<{
 
 export const Banner: React.FC<{
   title?: string;
+  name?:string
   year: number | undefined;
   id: number | string;
-}> = ({ id, title, year }) => {
+}> = ({ id, title, year , name }) => {
   const dateObject = new Date(year ? year : 0);
   const fullYear = dateObject.getFullYear();
   return (
@@ -31,7 +32,7 @@ export const Banner: React.FC<{
             className="text-2xl text-white font-semibold"
             id={`movie-title-${id}`}
           >
-            {title}
+            {title ? title : name}
           </span>
           <span className="text-xl text-primary">{fullYear ?? ''}</span>
         </div>
@@ -54,8 +55,8 @@ export const Detail: React.FC<{
         <h1 className="text-center text-5xl">{title}</h1>
         <p className="text-2xl p-5">
           <span className="italic text-3xl text-primary">RATE : </span>
-          <span className="text-yellow-400">{rate} </span>
-          Of <span className="text-yellow-400"> {votes} </span>
+          <span className="text-secondary">{rate} </span>
+          Of <span className="text-secondary"> {votes} </span>
            Votes
         </p>
         <p className="text-2xl p-5">
@@ -66,7 +67,7 @@ export const Detail: React.FC<{
           <span className="italic text-3xl text-primary">GENRES : </span>
           {genres}
         </p>
-        <p className="text-stone-400 text-2xl p-5 border-2 rounded-3xl border-purple-950">
+        <p className="text-stone-400 text-2xl p-5 border-2 rounded-3xl border-purple-600">
           <span className="italic text-3xl text-primary">STORY : </span> {story}
         </p>
       </div>
@@ -89,7 +90,7 @@ export const Cast: React.FC<{ cast: CastType[] }> = ({ cast }) => {
     <div
       ref={ref}
       onWheel={onWheel}
-      className="h-fit w-3/4 p-4 absolute top-8/12 left-11 text-primary scrollbar scroll-smooth flex gap-30 overflow-x-auto overflow-y-hidden"
+      className="h-fit w-3/4 p-4 absolute top-8/12 left-7 text-primary scrollbar scroll-smooth flex gap-30 overflow-x-auto overflow-y-hidden"
     >
       {cast.map((c: CastType) => (
         <Image

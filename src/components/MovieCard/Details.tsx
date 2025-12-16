@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { favoritesActions } from '@/store/favorites';
 import type { RootState } from '@/store';
-import { Image, Detail } from '.';
+import { Image, Detail } from './Index';
 import type { AllMovie } from './Type';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
 
-export const Details: React.FC<{ movie: AllMovie }> = ({ movie }) => {
+const Details: React.FC<{ movie: AllMovie }> = ({ movie }) => {
   const imageDetailStyle = 'w-sm rounded-2xl absolute right-10 pulse-shadow';
   const navigate = useNavigate();
   const isLoggedIn = useSelector(
@@ -43,3 +43,6 @@ export const Details: React.FC<{ movie: AllMovie }> = ({ movie }) => {
     </div>
   );
 };
+
+
+export default Details

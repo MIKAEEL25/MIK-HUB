@@ -1,11 +1,11 @@
 import type { JSX } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Image, Banner } from '.';
+import { Image, Banner } from './Index';
 
 import type { AllMovie } from './Type';
 
-export const MovieCard = ({
+const MovieCard = ({
   movie,
   route,
 }: {
@@ -27,6 +27,7 @@ export const MovieCard = ({
           />
           <Banner
             title={movie.title}
+            name={movie.name}
             year={
               movie.first_air_date ? movie.first_air_date : movie.release_date
             }
@@ -37,3 +38,5 @@ export const MovieCard = ({
     </Link>
   );
 };
+
+export default MovieCard;

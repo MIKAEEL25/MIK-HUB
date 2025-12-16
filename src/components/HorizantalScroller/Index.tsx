@@ -1,8 +1,8 @@
 import HorizontalScroller from './HorizantalScroller';
-import { MovieCard } from '../MovieCard/MovieCard';
+import MovieCard from '../MovieCard/MovieCard';
 import type { AllMovie } from '../MovieCard/Type';
 
-export const RootMovie: React.FC<{ data: AllMovie[]; route: string }> = ({
+const RootMovie: React.FC<{ data: AllMovie[]; route: string }> = ({
   data,
   route,
 }) => {
@@ -16,3 +16,5 @@ export const RootMovie: React.FC<{ data: AllMovie[]; route: string }> = ({
     </HorizontalScroller>
   );
 };
+
+export default RootMovie;
