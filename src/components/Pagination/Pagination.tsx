@@ -12,7 +12,7 @@ const Pagination: React.FC<{ totalPages: number }> = ({ totalPages }) => {
   };
 
   return (
-    <div className="flex items-center justify-center gap-20 m-10">
+    <div className="flex items-center justify-center sm:gap-20 m-10">
       <Button disabled={page === 1} onClick={() => goToPage(page - 1)}>
         PREVIOUS
       </Button>

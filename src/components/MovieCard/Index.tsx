@@ -51,23 +51,23 @@ export const Detail: React.FC<{
 }> = ({ rate, title, year, story, genres, votes }) => {
   return (
     <>
-      <div className="absolute left-0 top-0 w-3/4 text-left p-5">
-        <h1 className="text-center text-5xl">{title}</h1>
-        <p className="text-2xl p-5">
-          <span className="italic text-3xl text-primary">RATE : </span>
-          <span className="text-secondary">{rate} </span>
-          Of <span className="text-secondary"> {votes} </span>
+      <div className="2xl:absolute 2xl:mt-0 mt-8 2xl:left-0 2xl:top-0 2xl:w-3/4 text-left p-5 xl:mt-40">
+        <h1 className="text-center text-4xl sm:text-5xl">{title}</h1>
+        <p className="text-base sm:text-2xl md:text-3xl  p-5">
+          <span className="italic text-base sm:text-2xl md:text-3xl text-primary">RATE : </span>
+          <span className="text-secondary text-base sm:text-2xl md:text-3xl">{rate} </span>
+          Of <span className="text-secondary text-base sm:text-2xl"> {votes} </span>
            Votes
         </p>
-        <p className="text-2xl p-5">
-          <span className="italic text-3xl text-primary">RELEASE-DATE : </span>
+        <p className="sm:text-2xl text-base p-5">
+          <span className="italic text-base sm:text-3xl text-primary">RELEASE-DATE : </span>
           {year}
         </p>
-        <p className="text-2xl p-5">
-          <span className="italic text-3xl text-primary">GENRES : </span>
+        <p className="text-base sm:text-2xl p-5">
+          <span className="italic text-base sm:text-2xl md:text-3xl text-primary">GENRES : </span>
           {genres}
         </p>
-        <p className="text-stone-400 text-2xl p-5 border-2 rounded-3xl border-purple-600">
+        <p className="text-stone-400 text-base p-5 border-2 xl:w-11/12 sm:text-2xl rounded-3xl border-purple-600">
           <span className="italic text-3xl text-primary">STORY : </span> {story}
         </p>
       </div>
@@ -90,7 +90,7 @@ export const Cast: React.FC<{ cast: CastType[] }> = ({ cast }) => {
     <div
       ref={ref}
       onWheel={onWheel}
-      className="h-fit w-3/4 p-4 absolute top-8/12 left-7 text-primary scrollbar scroll-smooth flex gap-30 overflow-x-auto overflow-y-hidden"
+      className="h-fit w-3/4 m-auto p-4 2xl:absolute 2xl:top-8/12 2xl:left-7 text-primary scrollbar scroll-smooth flex gap-30 overflow-x-auto overflow-y-hidden"
     >
       {cast.map((c: CastType) => (
         <Image

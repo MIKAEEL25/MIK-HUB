@@ -32,7 +32,7 @@ const Movies = () => {
       <div className="mt-0">
         <SearchBar route="movies" sort="movie" />
       </div>
-      <div className="w-fit m-auto mt-56">{content}</div>
+      <div className="w-fit m-auto mt-40 sm:mt-56">{content}</div>
       {data && <Pagination totalPages={data.total_pages} />}
     </section>
   );

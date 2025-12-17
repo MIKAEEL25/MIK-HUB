@@ -15,7 +15,7 @@ const MovieCard = ({
   return (
     <Link to={`${route}${movie.id}`}>
       <div
-        className="group w-96 relative rounded-lg overflow-hidden shadow-sm hover:shadow-lg focus-within:shadow-lg transition-shadow duration-200"
+        className="group w-85 relative rounded-lg overflow-hidden shadow-sm hover:shadow-lg focus-within:shadow-lg transition-shadow duration-200"
         tabIndex={0}
         aria-labelledby={`movie-title-${movie.id}`}
       >

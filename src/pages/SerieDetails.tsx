@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Cast, Details, LoadSpinner } from '@/components';
+import { Details, LoadSpinner } from '@/components';
 import { useQuery } from '@tanstack/react-query';
 import { fetchCast, fetchDetails } from '../util/http';
 
@@ -26,12 +26,7 @@ const SerieDetails = () => {
     content = <LoadSpinner />;
   }
   if (serie || cast) {
-    content = (
-      <>
-        <Details movie={serie} />
-        {cast && <Cast cast={cast.cast} />}
-      </>
-    );
+    content = <Details movie={serie} cast={cast ? cast.cast : undefined} />;
   }
   if (!serie && !cast && !serieLoading) {
     content = (

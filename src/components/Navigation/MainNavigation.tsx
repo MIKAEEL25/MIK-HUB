@@ -16,7 +16,7 @@ const MainNavigation = (): JSX.Element => {
   );
   return (
     <header className="flex justify-between align-middle fixed z-10 top-0 left-0 bg-black w-full p-6">
-      <ul className="text-white text-3xl w-full flex h-fit justify-between">
+      <ul className="text-white text-based md:text-3xl w-full flex h-fit justify-between">
         <Logo />
         <NavigationItems title="movies" />
         <NavigationItems title="series" />
