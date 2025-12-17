@@ -25,7 +25,7 @@ const SerieDetails = () => {
   if (serieLoading || castLoading) {
     content = <LoadSpinner />;
   }
-  if (serie || cast) {
+  if (serie && cast) {
     content = <Details movie={serie} cast={cast ? cast.cast : undefined} />;
   }
   if (!serie && !cast && !serieLoading) {
