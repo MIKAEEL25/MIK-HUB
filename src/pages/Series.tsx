@@ -22,7 +22,6 @@ const Series = (): JSX.Element => {
   if (data) {
     content = <Movie data={data.results} />;
   }
-  console.log(data);
   if (!data && !isLoading) {
     content = (
       <p className="text-primary animate-pulse text-4xl text-center">

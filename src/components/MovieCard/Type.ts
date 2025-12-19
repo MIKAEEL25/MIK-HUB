@@ -22,3 +22,25 @@ export interface CastType {
   character: string;
   profile_path: string;
 }
+
+export interface ImageType {
+  url: string;
+  title?: string;
+  className: string;
+}
+
+export interface BannerType {
+  title?: string;
+  name?: string;
+  year: number | undefined;
+  id: number | string;
+}
+
+export interface DetailsType {
+  title?: string;
+  rate: number | undefined;
+  votes?: number | undefined;
+  year?: number;
+  story: string;
+  genres: string;
+}

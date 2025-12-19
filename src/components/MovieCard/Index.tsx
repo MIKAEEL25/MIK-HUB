@@ -1,11 +1,7 @@
 import { useRef } from 'react';
-import type { CastType } from './Type';
+import type { BannerType, CastType, DetailsType, ImageType } from './Type';
 
-export const Image: React.FC<{
-  url: string;
-  title?: string;
-  className: string;
-}> = ({ url, title, className }) => {
+export const Image: React.FC<ImageType> = ({ url, title, className }) => {
   return (
     <img
       src={`https://image.tmdb.org/t/p/w500${url}`}
@@ -15,14 +11,9 @@ export const Image: React.FC<{
   );
 };
 
-export const Banner: React.FC<{
-  title?: string;
-  name?:string
-  year: number | undefined;
-  id: number | string;
-}> = ({ id, title, year , name }) => {
+export const Banner: React.FC<BannerType> = ({ id, title, year, name }) => {
   const dateObject = new Date(year ? year : 0);
-  const fullYear = dateObject.getFullYear();
+  const justFullYear = dateObject.getFullYear();
   return (
     <div className="absolute inset-0 flex items-end">
       <div aria-hidden="true" className="banner-shadow" />
@@ -34,37 +25,46 @@ export const Banner: React.FC<{
           >
             {title ? title : name}
           </span>
-          <span className="text-xl text-primary">{fullYear ?? ''}</span>
+          <span className="text-xl text-primary">{justFullYear ?? ''}</span>
         </div>
       </div>
     </div>
   );
 };
 
-export const Detail: React.FC<{
-  title?: string;
-  rate: number | undefined;
-  votes?: number | undefined;
-  year?: number;
-  story: string;
-  genres: string;
-}> = ({ rate, title, year, story, genres, votes }) => {
+export const Detail: React.FC<DetailsType> = ({
+  rate,
+  title,
+  year,
+  story,
+  genres,
+  votes,
+}) => {
   return (
     <>
       <div className="2xl:absolute 2xl:mt-0 mt-8 2xl:left-0 2xl:top-0 2xl:w-3/4 text-left p-5 xl:mt-40">
         <h1 className="text-center text-4xl sm:text-5xl">{title}</h1>
         <p className="text-base sm:text-2xl md:text-3xl  p-5">
-          <span className="italic text-base sm:text-2xl md:text-3xl text-primary">RATE : </span>
-          <span className="text-secondary text-base sm:text-2xl md:text-3xl">{rate} </span>
-          Of <span className="text-secondary text-base sm:text-2xl"> {votes} </span>
-           Votes
+          <span className="italic text-base sm:text-2xl md:text-3xl text-primary">
+            RATE :
+          </span>
+          <span className="text-secondary text-base sm:text-2xl md:text-3xl">
+            {rate}
+          </span>
+          Of
+          <span className="text-secondary text-base sm:text-2xl">{votes}</span>
+          Votes
         </p>
         <p className="sm:text-2xl text-base p-5">
-          <span className="italic text-base sm:text-3xl text-primary">RELEASE-DATE : </span>
+          <span className="italic text-base sm:text-3xl text-primary">
+            RELEASE-DATE :
+          </span>
           {year}
         </p>
         <p className="text-base sm:text-2xl p-5">
-          <span className="italic text-base sm:text-2xl md:text-3xl text-primary">GENRES : </span>
+          <span className="italic text-base sm:text-2xl md:text-3xl text-primary">
+            GENRES :
+          </span>
           {genres}
         </p>
         <p className="text-stone-400 text-base p-5 border-2 xl:w-11/12 sm:text-2xl rounded-3xl border-purple-600">
