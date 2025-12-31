@@ -52,10 +52,14 @@ Additional libraries are used to handle routing and improve the overall user exp
 
 ## 📦 Installation & Setup
 
-First, clone or download the project:
+1.You can visit the github page with this **url**: <https://mikaeel25.github.io/MIK-HUB/>
+
+#### OR
+
+2.First, clone or download the project:
 
 ```bash
-git clone <https://github.com/MIKAEEL25/MIK-HUB.git>
+git clone https://github.com/MIKAEEL25/MIK-HUB.git
 cd mik-hub
 ```
 
